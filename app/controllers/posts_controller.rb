@@ -9,10 +9,7 @@ class PostsController < ApplicationController
 
   def update
     # binding.pry
-    @post.assign_attributes(post_params)
-    if @post.valid?
-      # binding.pry
-      @post.save
+    if @post.update(post_params)
       redirect_to post_path(@post)
     else
       render :edit
